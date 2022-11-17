@@ -10,40 +10,39 @@
 <body>
     <h1>Kaikanes Weather Dashboard</h1>
 <div class="Bigflex-container">
-<div class = "flex-container-1">
+<div class = "flex-1">
     <form>
         Search for a city:<br>
-        <input type="text" name="username">
+        <input type="text" name="username" id="citysearch">
         <br>
-        <input type="submit" value="Submit">
+        <input type="submit" value="Submit" id="submitbtn">
         
     </form>
-    <div class="history">
-        <ul>search history</ul>
-        <li>1</li><br>
-        <li>2</li><br>
-        <li>3</li><br>
-        <li>4</li><br>
-        <li>5</li><br>
+    <div class="history" id="history">
+        <h2>Search history</h2>
+        <ul></ul>
+      
 
     </div>
 </div>
 <div class="Bigflex-container-2">
-<div class="flex-container-2">
+<div class="flex-2">
         <div class="currentweather">
-        <h2>City</h2>
-        <p>Temp:</p>
-        <p>Wind:</p>
-        <p>Humidity:</p>
+        <h2 id="currentcity">City:</h2>
+        <ul class="currentweatherlist">
+        <li id="templist">Tempature:</li>
+        <li id="windlist">Wind:</li>
+        <li id="humiditylist">Humidity:</li>
+        </ul>
         </div>
 </div>
    
-    <div class = "flex-container-3">
-        <div>1</div>
-        <div>2</div>
-        <div>3</div>
-        <div>4</div>
-        <div>5</div>
+    <div class = "flex-3">
+        <div id="forecast1">1</div>
+        <div id="forecast2">2</div>
+        <div id= forecast3>3</div>
+        <div id= forecast4>4</div>
+        <div id= forecast5>5</div>
 
     </div>
 </div>
