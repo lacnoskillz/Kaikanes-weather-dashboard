@@ -5,6 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/style.css" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+      integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
+      crossorigin="anonymous"
+    ></script>
     <title>Document</title>
 </head>
 <body>
@@ -15,7 +20,7 @@
         Search for a city:<br>
         <input type="text" name="username" id="citysearch">
         <br>
-        <input type="submit" value="Submit" id="submitbtn">
+        <input type="submit" value="Search" id="submitbtn">
         
     </form>
     <div class="history" id="history">
@@ -28,7 +33,7 @@
 <div class="Bigflex-container-2">
 <div class="flex-2">
         <div class="currentweather">
-        <h2 id="currentcity">City:</h2>
+        <h3 id="currentcity">City:</h3>
         <ul class="currentweatherlist">
         <li id="templist">Tempature:</li>
         <li id="windlist">Wind:</li>
@@ -38,11 +43,38 @@
 </div>
    
     <div class = "flex-3">
-        <div id="forecast1">1</div>
-        <div id="forecast2">2</div>
-        <div id= forecast3>3</div>
-        <div id= forecast4>4</div>
-        <div id= forecast5>5</div>
+        <h4>5-Day Forecast:</h4>
+        <div id="forecast1">
+            <h5 id= "date1"></h5>
+            <ul>
+             
+            </ul>
+        </div>
+
+        <div id="forecast2">
+            <h5 id= "date2"></h5>
+            <ul>
+        
+            </ul>
+        </div>
+        <div id="forecast3">
+            <h5 id= "date3"></h5>
+            <ul>
+               
+            </ul>
+        </div>
+        <div id="forecast4">
+            <h5 id= "date4"></h5>
+            <ul>
+              
+            </ul>
+        </div>
+        <div id="forecast5">
+            <h5 id= "date5"></h5>
+            <ul>
+                
+            </ul>
+        </div>
 
     </div>
 </div>
