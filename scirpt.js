@@ -97,6 +97,7 @@ console.log(userinput,"is not a city in the data base");
 }
 //this function gets weather for the next 5days then grabs and sets certain data into divs
 function get5dayforecast(lat,lon){
+  deleteListItem();
   weatherURL = 'https://api.openweathermap.org/data/2.5/forecast?lat='+ lat +'&lon='+lon+'&appid=1d3ae5500d8fcb7af62c6c542bf6a203&units=imperial';
  fetch(weatherURL)
     .then(function (response) {
@@ -253,20 +254,34 @@ function init(){
       for(var i=0; i<storagearray.length; i++){
         var temp =storagearray[i]
         let btn = document.createElement("button");
-btn.innerHTML = temp;
+btn.innerHTML = temp.city;
 historyEL.appendChild(btn);
-
+btnclick(btn);
       }
+   function btnclick(btn){   
+btn.onclick = function () {
+  x = this.innerHTML;
+  APIfetch(x);
+}
+      }
+    
     }
-  
 
+function deleteListItem(){
+  const list = document.getElementById("cast1items");
+  while (list.hasChildNodes()) {
+    console.log("kai");
+    list.removeChild(list.firstChild);
+  }
+  
+  }
 
 //old history storer
     // var listitem = document.createElement('li');
     // listitem.textContent = cityname;
     // historyEL.appendChild(listitem);
 
-
+//attempt at a function to store 5 day weather forecast
 //  for(let i=0; i<39; i+8){
   //       var b = 1;
   //        forcastdiv = 'forecast'+b;

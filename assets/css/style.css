@@ -42,14 +42,14 @@ form{
 .flex-3{
     border: 1px solid black;
     display: flex;
-    
+    background-color: lightcoral;
     
     height: 100%;
     align-items: flex-start;
     justify-content: space-around;
 }
 .flex-3 > div {
-    background-color: lightcoral;
+    
     margin: 10px;
     padding: 20px;
     font-size: 20px;
