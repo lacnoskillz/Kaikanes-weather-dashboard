@@ -106,11 +106,11 @@ function get5dayforecast(lat,lon){
     .then(function (data) {
       console.log("5day",data);
       //box1 day2
-      date1 = data.list[1].dt_txt;
-      wind1 = data.list[1].wind.speed;
-      temp1 = data.list[1].main.temp;
-      humid1 = data.list[1].main.humidity;
-      weather1 = data.list[1].weather[0].icon;
+      date1 = data.list[6].dt_txt;
+      wind1 = data.list[6].wind.speed;
+      temp1 = data.list[6].main.temp;
+      humid1 = data.list[6].main.humidity;
+      weather1 = data.list[6].weather[0].icon;
       forecastdate1.textContent = date1;
       iconURL = "http://openweathermap.org/img/wn/"+ weather1 +"@2x.png";
       iconEL = document.createElement('img');
@@ -130,11 +130,11 @@ function get5dayforecast(lat,lon){
 
       
       //box2 day3
-      date2 = data.list[9].dt_txt;
-      wind2 = data.list[9].wind.speed;
-      temp2 = data.list[9].main.temp;
-      humid2 = data.list[9].main.humidity;
-      weather2 = data.list[9].weather[0].icon;
+      date2 = data.list[14].dt_txt;
+      wind2 = data.list[14].wind.speed;
+      temp2 = data.list[14].main.temp;
+      humid2 = data.list[14].main.humidity;
+      weather2 = data.list[14].weather[0].icon;
       forecastdate2.textContent = date2;
       iconURL = "http://openweathermap.org/img/wn/"+ weather2 +"@2x.png";
       iconEL = document.createElement('img');
@@ -151,11 +151,11 @@ function get5dayforecast(lat,lon){
       forecast2EL.appendChild(listitem);
       
       //box3 day 4
-      wind3 = data.list[18].wind.speed;
-      date3 = data.list[18].dt_txt;
-      temp3 = data.list[18].main.temp;
-      humid3 = data.list[18].main.humidity;
-      weather3 = data.list[18].weather[0].icon;
+      wind3 = data.list[22].wind.speed;
+      date3 = data.list[22].dt_txt;
+      temp3 = data.list[22].main.temp;
+      humid3 = data.list[22].main.humidity;
+      weather3 = data.list[22].weather[0].icon;
       forecastdate3.textContent = date3;
       iconURL = "http://openweathermap.org/img/wn/"+ weather3 +"@2x.png";
       iconEL = document.createElement('img');
@@ -172,11 +172,11 @@ function get5dayforecast(lat,lon){
       forecast3EL.appendChild(listitem);
       
       //box4 day 5
-      date4 = data.list[27].dt_txt;
-      wind4 = data.list[27].wind.speed;
-      temp4 = data.list[27].main.temp;
-      humid4 = data.list[27].main.humidity;
-      weather4 = data.list[27].weather[0].icon;
+      date4 = data.list[30].dt_txt;
+      wind4 = data.list[30].wind.speed;
+      temp4 = data.list[30].main.temp;
+      humid4 = data.list[30].main.humidity;
+      weather4 = data.list[30].weather[0].icon;
       forecastdate4.textContent = date4;
       iconURL = "http://openweathermap.org/img/wn/"+ weather4 +"@2x.png";
       iconEL = document.createElement('img');
@@ -251,13 +251,14 @@ init();
 function init(){
       retrieveddata = localStorage.getItem("history");
       var storagearray = JSON.parse(retrieveddata);
+      if(storagearray !== null){
       for(var i=0; i<storagearray.length; i++){
         var temp =storagearray[i]
         let btn = document.createElement("button");
 btn.innerHTML = temp.city;
 historyEL.appendChild(btn);
 btnclick(btn);
-      }
+      }}
    function btnclick(btn){   
 btn.onclick = function () {
   x = this.innerHTML;
@@ -268,11 +269,11 @@ btn.onclick = function () {
     }
 
 function deleteListItem(){
-  const list = document.getElementById("cast1items");
-  while (list.hasChildNodes()) {
-    console.log("kai");
-    list.removeChild(list.firstChild);
-  }
+  forecast1EL.innerHTML ="";
+  forecast2EL.innerHTML ="";
+  forecast3EL.innerHTML ="";
+  forecast4EL.innerHTML ="";
+  forecast5EL.innerHTML ="";
   
   }
 
