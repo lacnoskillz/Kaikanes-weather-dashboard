@@ -1,3 +1,6 @@
+body{
+    background-color: bisque;
+}
 h1{
     color: black;
     font-size: 50px;
@@ -5,17 +8,28 @@ h1{
     background-color: lightcoral;
     text-align: center;
 }
+h3{
+ 
+}
 .citysearcharea {
     font-size: 24px;
     margin: 1%;
     width: 96%;
     height: 50px;
+    border-radius: 10px;
 }
 .subbtn{
+    background-color: rgb(137, 205, 228);
+    color: rgba(255, 255, 255, 0.747);
     font-size: 24px;
     margin:2%;
     width: 96%;
     height: 35px;
+    border-radius: 10px;
+    border: none;
+}
+.subbtn:hover{
+    background-color: rgb(118, 191, 216);
 }
 form{
     font-size: 25px;
@@ -26,21 +40,23 @@ form{
     
 }
 .flex-1{
+    margin: 5px;
     display: flex;
     flex-direction: column;
     width:30%;
     height: 30;
-    border: 1px solid black;
+    
 }
 .flex-2{
     display: flex;
     border: 1px solid black;
     font-size: 30px;
     height: 100%;
- 
+    margin: 20px;
+    
 }
 .currentweather {
-    
+    padding: 5px;
     background-color: lightcoral;
    width: 100%;
     display: block;
@@ -52,7 +68,7 @@ form{
     display: block;
 }
 .flex-3{
-    border: 1px solid black;
+   margin:20px;
     display: flex;
     background-color: lightcoral;
     
@@ -61,8 +77,8 @@ form{
     justify-content: space-around;
 }
 .flex-3 > div {
-    
-    margin: 10px;
+    background-color: darkcyan;
+   margin: 1%;
     padding: 20px;
     font-size: 20px;
     text-align: left;
@@ -85,4 +101,14 @@ button{
     margin:2%;
     width: 96%;
     height: 35px;
+    border: none;
+    background-color: lightgray;
+    border-radius: 10px;
+}
+button:hover{
+    background-color: rgb(243, 239, 239);
+
+}
+hr{
+    width: 96%;
 }
