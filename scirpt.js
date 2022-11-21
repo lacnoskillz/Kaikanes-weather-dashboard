@@ -24,8 +24,8 @@ var today = dayjs();
 
 function APIfetch(userinput){
   
-  test = "http://api.openweathermap.org/geo/1.0/direct?q="+userinput+"&limit=5&appid=1d3ae5500d8fcb7af62c6c542bf6a203";
-fetch(test)
+  cityAPI = "https://api.openweathermap.org/geo/1.0/direct?q="+userinput+"&limit=5&appid=1d3ae5500d8fcb7af62c6c542bf6a203";
+fetch(cityAPI)
 
     .then(function (response) {
       return response.json();
@@ -76,7 +76,7 @@ function getweather(lat,lon,cityname){
 function setcurrentweather(wind,temp,humid,weather,currenttime,cityname){
   console.log("setcurrentweaher function");
   console.log("h2",h2EL);
-  iconURL = "http://openweathermap.org/img/wn/"+ weather +"@2x.png";
+  iconURL = "https://openweathermap.org/img/wn/"+ weather +"@2x.png";
   iconEL = document.createElement('img');
   iconEL.src = iconURL;
   h2EL.innerHTML= cityname +(' ') + (today.format( '(MM, D, YYYY)'));
@@ -112,7 +112,7 @@ function get5dayforecast(lat,lon){
       humid1 = data.list[6].main.humidity;
       weather1 = data.list[6].weather[0].icon;
       forecastdate1.textContent = date1;
-      iconURL = "http://openweathermap.org/img/wn/"+ weather1 +"@2x.png";
+      iconURL = "https://openweathermap.org/img/wn/"+ weather1 +"@2x.png";
       iconEL = document.createElement('img');
       iconEL.src = iconURL;
       forecast1EL.appendChild(iconEL);
@@ -136,7 +136,7 @@ function get5dayforecast(lat,lon){
       humid2 = data.list[14].main.humidity;
       weather2 = data.list[14].weather[0].icon;
       forecastdate2.textContent = date2;
-      iconURL = "http://openweathermap.org/img/wn/"+ weather2 +"@2x.png";
+      iconURL = "https://openweathermap.org/img/wn/"+ weather2 +"@2x.png";
       iconEL = document.createElement('img');
       iconEL.src = iconURL;
       forecast2EL.appendChild(iconEL);
@@ -157,7 +157,7 @@ function get5dayforecast(lat,lon){
       humid3 = data.list[22].main.humidity;
       weather3 = data.list[22].weather[0].icon;
       forecastdate3.textContent = date3;
-      iconURL = "http://openweathermap.org/img/wn/"+ weather3 +"@2x.png";
+      iconURL = "https://openweathermap.org/img/wn/"+ weather3 +"@2x.png";
       iconEL = document.createElement('img');
       iconEL.src = iconURL;
       forecast3EL.appendChild(iconEL);
@@ -178,7 +178,7 @@ function get5dayforecast(lat,lon){
       humid4 = data.list[30].main.humidity;
       weather4 = data.list[30].weather[0].icon;
       forecastdate4.textContent = date4;
-      iconURL = "http://openweathermap.org/img/wn/"+ weather4 +"@2x.png";
+      iconURL = "https://openweathermap.org/img/wn/"+ weather4 +"@2x.png";
       iconEL = document.createElement('img');
       iconEL.src = iconURL;
       forecast4EL.appendChild(iconEL);
@@ -199,7 +199,7 @@ function get5dayforecast(lat,lon){
       humid5 = data.list[38].main.humidity;
       weather5 = data.list[38].weather[0].icon;
       forecastdate5.textContent = date5;
-      iconURL = "http://openweathermap.org/img/wn/"+ weather5 +"@2x.png";
+      iconURL = "https://openweathermap.org/img/wn/"+ weather5 +"@2x.png";
       iconEL = document.createElement('img');
       iconEL.src = iconURL;
       forecast5EL.appendChild(iconEL);
