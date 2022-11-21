@@ -11,10 +11,14 @@ h1{
     
 }
 h3{
- 
+ padding:1%;
 }
 h4{
     margin: 20px;
+    font-size: 34px;
+}
+h5{
+    text-align: center;
 }
 .citysearcharea {
     font-size: 24px;
@@ -75,6 +79,7 @@ form{
     display: block;
 }
 .flex-3{
+    flex-wrap: wrap;
    margin:20px;
     display: flex;
     background-color: lightcoral;
@@ -86,11 +91,14 @@ form{
     padding:1%;
 }
 .flex-3 > div {
+
     background-color: darkcyan;
    margin: 1%;
     padding: 20px;
     font-size: 20px;
     text-align: left;
+    display: block;
+    border-radius: 10px;
     
 }
 .Bigflex-container{
@@ -121,3 +129,14 @@ button:hover{
 hr{
     width: 96%;
 }
+.hide{
+    display:none;
+}
+
+@media (max-width: 520px) {
+    .flex-2, .flex-3{
+        font-size: 15px;
+
+    }
+    
+  }
