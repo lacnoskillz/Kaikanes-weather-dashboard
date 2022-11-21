@@ -13,7 +13,7 @@ For travelers to see weather conditions of multiple cities and use that knowledg
 * Zoom
 #### Screen shot
 ***
-[image](./assets/images/Screenshot.png)
+![image](./assets/images/Screenshot.png)
 ##### Link
 ***
 click for deployed app
