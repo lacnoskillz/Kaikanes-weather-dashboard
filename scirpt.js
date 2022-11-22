@@ -33,10 +33,10 @@ fetch(cityAPI)
      }else{
       lat = data[0].lat
      lon = data[0].lon
-      console.log('lat',lat);
-      console.log('lon',lon);
+      //console.log('lat',lat);
+      //console.log('lon',lon);
       cityname = data[0].name;
-      console.log("city",cityname);
+      //console.log("city",cityname);
       getweather(lat,lon,cityname);
       get5dayforecast(lat,lon);
     }});
@@ -54,15 +54,15 @@ function getweather(lat,lon,cityname){
       humid = data.main.humidity;
       weather = data.weather[0].icon;
       currenttime = data.dt;
-      console.log("currenttime",currenttime);
+      //console.log("currenttime",currenttime);
       cityname= cityname;
       setcurrentweather(wind,temp,humid,weather,cityname);
 })
 }
 //sets info of the current weather of the city in html "flex-2"
 function setcurrentweather(wind,temp,humid,weather,cityname){
-  console.log("setcurrentweaher function");
-  console.log("h2",h2EL);
+ // console.log("setcurrentweaher function");
+ // console.log("h2",h2EL);
   iconURL = "https://openweathermap.org/img/wn/"+ weather +"@2x.png";
   iconEL = document.createElement('img');
   iconEL.src = iconURL;
@@ -79,7 +79,8 @@ function citynotfound(userinput){
   tempEL.innerHTML = "Tempature:"
   humidityEL.innerHTML = "Humidity"
   windEL.innerHTML = "Wind:"
-console.log(userinput,"is not a city in the data base");
+  deleteListItem();
+//console.log(userinput,"is not a city in the data base");
 }
 //this function gets weather for the next 5days then grabs and sets certain data into divs "flex-3"
 function get5dayforecast(lat,lon){
@@ -94,11 +95,11 @@ function get5dayforecast(lat,lon){
       var b = 1;
       for(let i=7; i<=39; i+=8){
         forecastbox.classList.remove("hide");
-        console.log("b",b);
-        console.log("i",i);
+        //console.log("b",b);
+        //console.log("i",i);
          forcastUL = 'forecast'+b;
          forecastEL = document.getElementById(forcastUL);
-         console.log("forecast",forecastEL);
+         //console.log("forecast",forecastEL);
          header5 = "date" +b;
          var forecastdate = document.getElementById(header5);
          forecastdate.innerHTML = "";
@@ -111,7 +112,7 @@ function get5dayforecast(lat,lon){
    iconEL = document.createElement('img');
    iconEL.src = iconURL;
    date = date.slice(0,10);
-   console.log("date",date);
+   //console.log("date",date);
    forecastdate.append(date);
    forecastEL.appendChild(iconEL);
    var listitem = document.createElement('li');
@@ -138,7 +139,7 @@ submitbtn.addEventListener('click',Afunction);
 function Afunction(event){
   event.preventDefault();
   userinput = citysearchEL.value;
-  searchhistory(userinput);
+  presearchhistory(userinput);
   console.log(userinput);
   if(userinput != null){
   APIfetch(userinput);
@@ -146,6 +147,24 @@ function Afunction(event){
     return;
   }
 }
+//made this so when a user enters a single letter the saved history will save as the city name asscociated with that letter
+function presearchhistory(userinput){
+  cityAPI = "https://api.openweathermap.org/geo/1.0/direct?q="+userinput+"&limit=5&appid=1d3ae5500d8fcb7af62c6c542bf6a203";
+fetch(cityAPI)
+
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      if(data[0] == undefined){
+      return;
+      }else{
+        cityname = data[0].name;
+     searchhistory(cityname);
+      }
+    })};
+  
+
 //function to make buttons containing users search. stores it locally. and makes a onclick function to run the APIfetch again.
 function searchhistory(cityname){
   var storedcitys = JSON.parse(localStorage.getItem('history')) || [];
@@ -183,13 +202,14 @@ btn.onclick = function () {
       }
     
     }
-//function to clear 5day forecast so we only see the current citys forecast
+//function to clear 5day forecast so we only see the current citys forecast added hide class to hide h5
 function deleteListItem(){
   forecast1EL.innerHTML ="";
   forecast2EL.innerHTML ="";
   forecast3EL.innerHTML ="";
   forecast4EL.innerHTML ="";
   forecast5EL.innerHTML ="";
+  forecastbox.classList.add("hide");
   
   }
 
