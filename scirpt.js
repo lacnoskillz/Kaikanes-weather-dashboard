@@ -215,7 +215,7 @@ function deleteListItem(){
 
 //event listener and logic to handle delete history
 function delhistory(){
-  localStorage.clear();
+  localStorage.removeItem("history");
   location.reload();
 }
 const historybtn = document.getElementById("historybtn")
